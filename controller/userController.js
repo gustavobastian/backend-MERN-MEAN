@@ -13,7 +13,13 @@ exports.createUser = async (req,res)=>{
     }
 
 exports.sendUser = async (req,res)=>{
-    res.send("<h1>Gustavito</h1>");
+    let user = await User.findById(req.params.id);
+    if(!user){
+        res.status(404).json({msg:'user not found'});
+    }
+    else {
+        res.send(user).status(200);
+    }
 }
 
 exports.sendAllUser = async (req,res)=>{
