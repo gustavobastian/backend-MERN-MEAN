@@ -3,7 +3,7 @@ Simple backend for MEAN-MERN stack
 
 # How to run
 
-First, installing all the modules needed:
+First, install all the modules needed:
 
 ```
 npm install
