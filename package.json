@@ -1,0 +1,25 @@
+{
+  "name": "comics-sf",
+  "version": "1.0.0",
+  "description": "Santa fe comics api-rest",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Santa fe",
+    "comics",
+    "api-rest"
+  ],
+  "author": "Gustavo Bastian",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-router": "^0.0.1",
+    "mocha": "^10.2.0",
+    "mongoose": "^6.8.2"
+  }
+}
