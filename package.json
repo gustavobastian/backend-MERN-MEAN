@@ -1,16 +1,16 @@
 {
   "name": "comics-sf",
   "version": "1.0.0",
-  "description": "Santa fe comics api-rest",
+  "description": "Simple api-rest",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "Santa fe",
-    "comics",
-    "api-rest"
+    "Simple",    
+    "MongoDB",
+    "API-REST"
   ],
   "author": "Gustavo Bastian",
   "license": "ISC",
