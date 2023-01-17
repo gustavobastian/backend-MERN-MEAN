@@ -16,7 +16,8 @@ app.get('/',(req, res  )=>{
 })
 //routes
 app.use('/api/user',require('./routes/users.js'));
+app.use('/api/images',require('./routes/images.js'));
 
 app.listen(PORT, (req,res)=>{
-    console.log("backend running")
+    console.log("backend running on port:"+PORT)
 })
