@@ -9,12 +9,11 @@ PORT_LOCAL = 8001
 
 ## Installing components and running
 
-´´´ 
+```
 npm install
+```
+ 
 
-´´´ 
-
-´´´  
-npm run dev
-
-´´´ 
+```
+npm run devS
+``` 
