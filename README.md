@@ -11,5 +11,10 @@ PORT_LOCAL = 8001
 
 ´´´ 
 npm install
+
+´´´ 
+
+´´´  
 npm run dev
+
 ´´´ 
