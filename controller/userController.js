@@ -1,21 +1,62 @@
 const User = require('../models/User.js');
 
 exports.createUser = (req,res)=>{
-    try {
-        const localUser = JSON.parse(req.body);
-        console.log(localUser);
-        //res.send(localUser.code)
-        res.send("<h1>user created</h1>")
-        }catch(e){
-            console.log(e);
-            res.status(500).send("There was an error creating user")
+    
+    const localUser = new User(req.body);
+            
+    if((localUser.mode == null)||
+       (
+        (localUser.mode != "publisher")&&
+        (localUser.mode != "subscriber")&&
+        (localUser.mode != "administrator")
+       ))
+       {
+        console.log(e);
+        res.status(500).send("There was an error creating user")
+        return;
+    }        
+
+    localUser.save((err,localUser)=>{        
+        if(err){
+            console.log(err);
+            res.send(err)
         }
+        else{
+            res.json({message:"user add:",localUser})
+        }
+
+    })
 }
 
+
+exports.createUserTest = (req,res)=>{
+    console.log("postusertest")
+        const localUser = new User(req.body);
+        if((localUser.mode == null)||
+           (
+            (localUser.mode != "publisher")&&
+            (localUser.mode != "subscriber")&&
+            (localUser.mode != "administrator")
+           ))
+           {            
+            res.status(500).send("There was an error creating user");
+            return;
+        }        
+
+        localUser.save((err,localUser)=>{            
+            if(err){             
+                res.send(err)
+            }
+            else{
+                res.json({message:"user add:",localUser})
+            }
+        })
+}
+
+
+
 exports.getUser = async (req,res)=>{   
-
     res.set('myParam', "holamundo");
-
     try {
     const codelocal = req.params.id;
     console.log(codelocal);
@@ -28,13 +69,9 @@ exports.getUser = async (req,res)=>{
     }
 }
 
-exports.getUserTest = async (req,res)=>{   
-    console.log("usertest")
-    res.set('myParam', "holamundo");
-
+exports.getUserTest = async (req,res)=>{           
     try {
-    const code = req.params.id;
-    console.log(code);
+    const code = req.params.id;    
     const localUser = await User.findOne();
     console.log(localUser.password);
     res.json(localUser)
@@ -55,13 +92,9 @@ exports.alterUser = (req,res)=>{
         }    
 }
 
-exports.deleteUser = (req,res)=>{    
-    try {
-        const code = req.params.id;
-        console.log(code);        
-        res.send("<h1>borrando Gustavito</h1>")
-        }catch(e){
-            console.log(e);
-            res.status(500).send("There was an error getting user")
-        }
+exports.deleteUser = (req,res)=>{      
+    User.deleteOne({_id:req.params.id}, (err, result)=>{
+        res.json({ message: "User successfully deleted!", result });
+
+    })
 }
