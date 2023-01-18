@@ -24,10 +24,8 @@ exports.createUser = (req,res)=>{
         else{
             res.json({message:"user add:",localUser})
         }
-
     })
 }
-
 
 exports.createUserTest = (req,res)=>{
     console.log("postusertest")
@@ -52,8 +50,6 @@ exports.createUserTest = (req,res)=>{
             }
         })
 }
-
-
 
 exports.getUser = async (req,res)=>{   
     res.set('myParam', "holamundo");
