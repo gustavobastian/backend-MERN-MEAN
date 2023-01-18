@@ -17,6 +17,22 @@ exports.getUser = async (req,res)=>{
     res.set('myParam', "holamundo");
 
     try {
+    const codelocal = req.params.id;
+    console.log(codelocal);
+    const localUser = await User.findOne({code:codelocal})
+    console.log(localUser.password);
+    res.json(localUser)
+    }catch(e){
+        console.log(e);
+        res.status(500).send("There was an error getting user")
+    }
+}
+
+exports.getUserTest = async (req,res)=>{   
+    console.log("usertest")
+    res.set('myParam', "holamundo");
+
+    try {
     const code = req.params.id;
     console.log(code);
     const localUser = await User.findOne();

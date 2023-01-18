@@ -17,10 +17,8 @@ describe('searching',  () => {
     it('get one user', (done) => {        
         
         chai.request(server)    
-        .get("/api/user/000001")    
-        .end((err,res)=>
-        {   
-            console.log(JSON.stringify(res.body))
+        .get("/api/user/test")    
+        .end( (err,res) => {   
             res.should.have.status(200);  
             done();
         })
