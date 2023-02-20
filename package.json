@@ -26,6 +26,7 @@
     "express-router": "^0.0.1",
     "mocha": "^10.2.0",
     "mongoose": "^6.8.2",
+    "nodemon": "^2.0.20",
     "nyc": "^15.1.0"
   }
 }
