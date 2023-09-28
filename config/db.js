@@ -1,3 +1,5 @@
+global.TextEncoder = require("util").TextEncoder; global.TextDecoder = require("util").TextDecoder;
+
 const mongoose = require('mongoose');
 require('dotenv').config()
 mongoose.set("strictQuery", false);

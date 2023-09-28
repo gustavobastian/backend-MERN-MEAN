@@ -54,10 +54,11 @@ exports.createUserTest = (req,res)=>{
 exports.getUser = async (req,res)=>{   
     res.set('myParam', "holamundo");
     try {
-    const codelocal = req.params.id;
-    console.log(codelocal);
-    const localUser = await User.findOne({code:codelocal})
-    console.log(localUser.password);
+    let codelocal = req.params.id;   
+    
+    let localUser = new User();
+    localUser = await User.findOne({code:codelocal})
+    console.log(localUser);
     res.json(localUser)
     }catch(e){
         console.log(e);
